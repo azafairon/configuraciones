@@ -71,7 +71,7 @@ set smartindent
 set incsearch
 set nocompatible
 set ruler
-"set wildmenu     " Enhanced command line completion
+set wildmenu     " Enhanced command line completion
 set omnifunc=syntaxcomplete#Complete
 set cmdheight=1
 set showcmd
