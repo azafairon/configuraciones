@@ -30,6 +30,7 @@ Bundle "jistr/vim-nerdtree-tabs"
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 
+
 " Status line mejorada
 Bundle 'bling/vim-airline'
 " Para mostrar los buffes y tabs en el top
@@ -50,7 +51,6 @@ Bundle 'Lokaltog/vim-easymotion'
 " del todo...por ahora lo desactivo
 
 "Bundle 'vim-scripts/vcscommand.vim'
-
 
 filetype plugin indent on     " required!
 
@@ -119,6 +119,7 @@ map <silent> <F2> :TagbarToggle<cr>
 map <silent> <F3> :NERDTreeTabsToggle<cr>
 map <silent> <F4> :FufCoverageFile<cr>
 map <silent> <F5> :set cursorline!<cr>:set cursorcolumn!<cr>
+map <silent> <F6> :set list!<cr>
 
 " La idea es mapear los siguientes comandos
 " "+gP pega el texto desde el porta papeles
@@ -140,4 +141,52 @@ nmap <silent> <A-h> :wincmd h<cr>
 nmap <silent> <A-l> :wincmd l<cr>
 nmap <silent> <A-k> :wincmd k<cr>
 nmap <silent> <A-j> :wincmd j<cr>
+
+" Funciones de estilo, muestra lo que
+" no es aceptable para el standard
+let s:show_nostandard = 0
+
+function Nostandard()
+
+	hi OverLength ctermbg=red ctermfg=white guibg=#592929
+	hi WhiteSpace ctermbg=blue  ctermfg=white guibg=#592929
+	hi link over OverLength
+	hi link space WhiteSpace
+	match over  /\%81v.\+/
+	" todo : ver la funcion que tienen en el trabajo
+	" para los espacios, sustituirla por esta
+	2match space /\s\+$/
+
+	if s:show_nostandard
+		hi link over NONE
+		hi link space NONE
+		let s:show_nostandard = 0
+	else
+		hi link over OverLength
+		hi link space WhiteSpace
+		let s:show_nostandard = 1
+	endif
+
+endfunction
+
+
+function ShowHelp()
+
+	echo "<F2>: mostrar tags en el fichero"
+	echo "<F3>: mostrar arbol de directorio"
+	echo "<F4>: buscar ficheros expresiones regulares"
+	echo "<F5>: toggle lineas para el cursor "
+	echo "<F6>: toggle mostrar espacios y tabs"
+	echo "<F9>: toggle resaltado los standars, >80 lineas y trail espacios"
+	echo "<F10> mostrar esta ayuda"
+	echo "<Ctrl-t>: nueva tab"
+	echo "<Ctrl-direccion>: mover entre tabs"
+	echo "<Alt-direccion>: moverse entre ventanas"
+
+endfunction
+
+" mapeos para las funciones
+
+map <silent> <F9> :call Nostandard()<cr>
+map <silent> <F10> :call ShowHelp()<cr>
 
