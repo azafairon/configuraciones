@@ -71,7 +71,7 @@ set smartindent
 set incsearch
 set nocompatible
 set ruler
-set wildmenu     " Enhanced command line completion
+"set wildmenu     " Enhanced command line completion
 set omnifunc=syntaxcomplete#Complete
 set cmdheight=1
 set showcmd
@@ -118,6 +118,7 @@ nmap <silent> <C-h> :tabnext<cr>
 map <silent> <F2> :TagbarToggle<cr>
 map <silent> <F3> :NERDTreeTabsToggle<cr>
 map <silent> <F4> :FufCoverageFile<cr>
+map <silent> <F5> :set cursorline!<cr>:set cursorcolumn!<cr>
 
 " La idea es mapear los siguientes comandos
 " "+gP pega el texto desde el porta papeles
@@ -139,3 +140,4 @@ nmap <silent> <A-h> :wincmd h<cr>
 nmap <silent> <A-l> :wincmd l<cr>
 nmap <silent> <A-k> :wincmd k<cr>
 nmap <silent> <A-j> :wincmd j<cr>
+
