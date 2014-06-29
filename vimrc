@@ -46,6 +46,11 @@ Bundle 'rstacruz/sparkup'
 
 Bundle 'Lokaltog/vim-easymotion'
 
+" Snipmate
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 " plugin para usar cvs/git/svn....etc
 " Peligroso activarlo si saber como se maneja
 " del todo...por ahora lo desactivo
@@ -71,7 +76,7 @@ set smartindent
 set incsearch
 set nocompatible
 set ruler
-"set wildmenu     " Enhanced command line completion
+set wildmenu     " Enhanced command line completion
 set omnifunc=syntaxcomplete#Complete
 set cmdheight=1
 set showcmd
@@ -120,6 +125,7 @@ map <silent> <F3> :NERDTreeTabsToggle<cr>
 map <silent> <F4> :FufCoverageFile<cr>
 map <silent> <F5> :set cursorline!<cr>:set cursorcolumn!<cr>
 map <silent> <F6> :set list!<cr>
+map <silent> <F7> :tab sball<cr>
 
 " La idea es mapear los siguientes comandos
 " "+gP pega el texto desde el porta papeles
@@ -177,6 +183,7 @@ function ShowHelp()
 	echo "<F4>: buscar ficheros expresiones regulares"
 	echo "<F5>: toggle lineas para el cursor "
 	echo "<F6>: toggle mostrar espacios y tabs"
+	echo "<F7>: pasar buffers a tabs"
 	echo "<F9>: toggle resaltado los standars, >80 lineas y trail espacios"
 	echo "<F10> mostrar esta ayuda"
 	echo "<Ctrl-t>: nueva tab"
