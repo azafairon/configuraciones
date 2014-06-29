@@ -184,6 +184,7 @@ function ShowHelp()
 	echo "<F5>: toggle lineas para el cursor "
 	echo "<F6>: toggle mostrar espacios y tabs"
 	echo "<F7>: pasar buffers a tabs"
+	echo "<F8>: ejecutamos interprete para el fichero, grabamos antes"
 	echo "<F9>: toggle resaltado los standars, >80 lineas y trail espacios"
 	echo "<F10> mostrar esta ayuda"
 	echo "<Ctrl-t>: nueva tab"
@@ -192,9 +193,31 @@ function ShowHelp()
 
 endfunction
 
+function Ejecutar()
+
+	" grabamos el fichero
+	:w
+
+	" dependiendo del tipo ejecutamos
+	" un interprete u otro
+
+	if &ft == 'tcl'
+		!tclsh %
+	elseif &ft == 'python'
+		!python %
+	else
+		echo "ni idea del fichero"
+	endif
+
+endfunction
+
+
+
 " mapeos para las funciones
 
 map <silent> <F9> :call Nostandard()<cr>
 map <silent> <F10> :call ShowHelp()<cr>
+map <silent> <F8> :call Ejecutar()<cr>
+
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
