@@ -197,3 +197,4 @@ endfunction
 map <silent> <F9> :call Nostandard()<cr>
 map <silent> <F10> :call ShowHelp()<cr>
 
+let g:nerdtree_tabs_open_on_gui_startup = 0
