@@ -152,24 +152,38 @@ nmap <silent> <A-j> :wincmd j<cr>
 " no es aceptable para el standard
 let s:show_nostandard = 0
 
+
+hi link over OverLength
+hi link whitespace_post WhiteSpace
+
+" # Find lines with invalid whitespace.  They are considered incorrect if:
+" #   1) If the line ends with a whitespace character. This covers the case where a line is entirely whitespace.
+" #   2) If any whitespace characters except tabs precede the first non-whitespace character
+" #   3) If any whitespace characters except spaces follow the first non-whitespace character
+" export GREP_OPTIONS="-Hn"
+
+" result1=$(grep -P '\s$' $1)
+" result2=$(grep -vP $'^\t*(?:\S| \*|$)' $1)
+" result3=$(grep -P '\S[^\S ]' $1)
+
+
+call matchadd('over','\%81v.\+')
+call matchadd('whitespace_post','\s\+$')
+"call matchadd('whitespace_pre','$^\t*(?:\S| \*|$)')
+"call matchadd('whitespace_inter','$^\t*(?:\S| \*|$)')
+
 function Nostandard()
 
 	hi OverLength ctermbg=red ctermfg=white guibg=#592929
 	hi WhiteSpace ctermbg=blue  ctermfg=white guibg=#592929
-	hi link over OverLength
-	hi link space WhiteSpace
-	match over  /\%81v.\+/
-	" todo : ver la funcion que tienen en el trabajo
-	" para los espacios, sustituirla por esta
-	2match space /\s\+$/
 
 	if s:show_nostandard
 		hi link over NONE
-		hi link space NONE
+		hi link whitespace_post NONE
 		let s:show_nostandard = 0
 	else
 		hi link over OverLength
-		hi link space WhiteSpace
+		hi link whitespace_post WhiteSpace
 		let s:show_nostandard = 1
 	endif
 
