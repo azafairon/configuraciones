@@ -115,8 +115,8 @@ nmap <silent> <C-t> :tabnew<cr>
 nmap <silent> <C-left> :tabprev<cr>
 nmap <silent> <C-right> :tabnext<cr>
 
-nmap <silent> <C-l> :tabprev<cr>
-nmap <silent> <C-h> :tabnext<cr>
+nmap <silent> <C-l> :bp<cr>
+nmap <silent> <C-h> :bn<cr>
 
 " Mapeamos el tagbartoggle para las funciones
 
@@ -155,6 +155,7 @@ let s:show_nostandard = 0
 
 hi link over OverLength
 hi link whitespace_post WhiteSpace
+hi link whitespace_pre WhiteSpace
 
 " # Find lines with invalid whitespace.  They are considered incorrect if:
 " #   1) If the line ends with a whitespace character. This covers the case where a line is entirely whitespace.
@@ -169,6 +170,7 @@ hi link whitespace_post WhiteSpace
 
 call matchadd('over','\%81v.\+')
 call matchadd('whitespace_post','\s\+$')
+call matchadd('whitespace_pre','^[^\t]\s\+\S')
 "call matchadd('whitespace_pre','$^\t*(?:\S| \*|$)')
 "call matchadd('whitespace_inter','$^\t*(?:\S| \*|$)')
 
@@ -180,10 +182,12 @@ function Nostandard()
 	if s:show_nostandard
 		hi link over NONE
 		hi link whitespace_post NONE
+		hi link whitespace_pre NONE
 		let s:show_nostandard = 0
 	else
 		hi link over OverLength
 		hi link whitespace_post WhiteSpace
+		hi link whitespace_pre WhiteSpace
 		let s:show_nostandard = 1
 	endif
 
