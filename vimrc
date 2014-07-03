@@ -202,7 +202,7 @@ function ShowHelp()
 	echo "<F2>: mostrar tags en el fichero"
 	echo "<F3>: mostrar arbol de directorio"
 	echo "<F4>: buscar ficheros expresiones regulares"
-	echo "<F5>: toggle lineas para el cursor "
+	echo "<F5>: toggle numbers plugin"
 	echo "<F6>: toggle mostrar espacios y tabs"
 	echo "<F7>: pasar buffers a tabs"
 	echo "<F8>: ejecutamos interprete para el fichero, grabamos antes"
