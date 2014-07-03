@@ -123,7 +123,10 @@ nmap <silent> <C-h> :bn<cr>
 map <silent> <F2> :TagbarToggle<cr>
 map <silent> <F3> :NERDTreeTabsToggle<cr>
 map <silent> <F4> :FufCoverageFile<cr>
-map <silent> <F5> :set cursorline!<cr>:set cursorcolumn!<cr>
+"map <silent> <F5> :set cursorline!<cr>:set cursorcolumn!<cr>
+" me parece mas interesante mapear aqui el toggle the numbers
+" mas que las lineas que no suelo utilizar
+map <silent> <F5> :NumbersToggle<cr>
 map <silent> <F6> :set list!<cr>
 map <silent> <F7> :tab sball<cr>
 
