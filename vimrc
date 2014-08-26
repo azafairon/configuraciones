@@ -46,6 +46,12 @@ Bundle 'rstacruz/sparkup'
 
 Bundle 'Lokaltog/vim-easymotion'
 
+" para autocompletado
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+set completeopt-=preview
+
 " Snipmate
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -63,7 +69,7 @@ filetype plugin indent on     " required!
 " Color molokai --> no fuciona en terminal, solo
 " para gvim.......buscar otro scheme ??
 
-colorscheme molokai
+"colorscheme molokai
 " si cambiamos a 256 colores funciona el scheme
 set t_Co=256
 
