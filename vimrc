@@ -23,11 +23,11 @@ if has('gui_running')
 
 else
 
-	set background=dark
 	let g:solarized_termcolors=256
 	let g:solarized_visibility="low"
-	let g:solarized_termtrans=1
+	"let g:solarized_termtrans=1
 	set t_Co=256
+	set background=dark
 
 endif
 
@@ -45,6 +45,9 @@ Bundle "jistr/vim-nerdtree-tabs"
 " Plugin para buscar ficheros con expresiones regulares
 ""Bundle 'L9'
 ""Bundle 'FuzzyFinder'
+Bundle "kien/ctrlp.vim"
+let g:ctrlp_map = '<F4>'
+let g:ctrlp_cmd = 'CtrlP'
 
 
 " Status line mejorada
@@ -103,7 +106,6 @@ set showcmd
 set laststatus=2
 set so=6
 set previewheight=6
-"set mouse=a
 set number
 set go=t,m
 set nobackup
@@ -142,7 +144,7 @@ nmap <silent> <C-h> :bn<cr>
 
 map <silent> <F2> :TagbarToggle<cr>
 map <silent> <F3> :NERDTreeTabsToggle<cr>
-map <silent> <F4> :FufCoverageFile<cr>
+"map <silent> <F4> :FufCoverageFile<cr>
 "map <silent> <F5> :set cursorline!<cr>:set cursorcolumn!<cr>
 " me parece mas interesante mapear aqui el toggle the numbers
 " mas que las lineas que no suelo utilizar
