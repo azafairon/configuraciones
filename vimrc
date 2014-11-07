@@ -1,5 +1,7 @@
-" Configuracion para hacer funcionar Vundle
-" Vundele : instalar plugin para vim de forma sencilla
+" Vundele :Allow us to install plugin for vim
+" To set up Vundele, we need to clone the repository and place it in
+" .vim/bundle/vundle.
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -7,89 +9,79 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Para gestionar los "Bundles, necesario clonar el repositorio
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+"  Plugins loaded by Vundle
+"""""""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'gmarik/vundle'
 
-" Plugin ver las funciones,clases del fichero
+" TAGBAR
+" Allow us to get the tags in a file in order to
+" indentify functions,classes,procedures.....
 Bundle 'majutsushi/tagbar'
-" Plugins para colores
+
+
+" SOLARIZED SCHEMA
+" Colors for vim
 Bundle 'altercation/vim-colors-solarized'
-colorscheme solarized
 
-if has('gui_running')
 
-	set background=light
-
-else
-
-	let g:solarized_termcolors=256
-	let g:solarized_visibility="low"
-	"let g:solarized_termtrans=1
-	set t_Co=256
-	set background=dark
-
-endif
-
-""Bundle 'vim-scripts/molokai'
-" automaticamente cierra llaves y tags
+" DELIMMATE
+" Close { ( ....
 Bundle 'Raimondi/delimitMate'
-" interesante plugin para ver los numeros
-" relativos a la linea en la que estas
-" si quieres borrar 3 lineas ya no tendre
-" que contar nunca mas....
-""Bundle "myusuf3/numbers.vim"
-"visualizar directorio
+
+
+" NERDTRE
+" Generate a directory tree
 Bundle "scrooloose/nerdtree"
 Bundle "jistr/vim-nerdtree-tabs"
-" Plugin para buscar ficheros con expresiones regulares
-""Bundle 'L9'
-""Bundle 'FuzzyFinder'
+
+
+" CTRL-P
+" Search files in a directory given
 Bundle "kien/ctrlp.vim"
-let g:ctrlp_map = '<F4>'
-let g:ctrlp_cmd = 'CtrlP'
 
 
-" Status line mejorada
+" VIM-AIRLINE
+" Enhance for the status bar
 Bundle 'bling/vim-airline'
-" Para mostrar los buffes y tabs en el top
-let g:airline#extensions#tabline#enabled = 1
 
-" Plugin para comentar y descomentar
+
+" VIM-COMMENTARY
+" Plugin to comment/uncomment
 Bundle 'tpope/vim-commentary.git'
 
-" Para facil uso the html objetos
-""Bundle 'rstacruz/sparkup'
 
-" para moverse facilmente y editar
-
-""Bundle 'Lokaltog/vim-easymotion'
-
-" para autocompletado
-" Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_add_preview_to_completeopt = 0
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"set completeopt-=preview
-
-" Snipmate
+" SNIPMATE
+" snippet for vim
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
-" plugin para usar cvs/git/svn....etc
-" Peligroso activarlo si saber como se maneja
-" del todo...por ahora lo desactivo
 
-""Bundle 'vim-scripts/vcscommand.vim'
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure plugins and environment
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Configure plugins
+" ------------------
+
+" Disable by default openning nerdtree in gui
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:ctrlp_map = '<F4>'
+let g:ctrlp_cmd = 'CtrlP'
+" To show buffers in the status bar
+let g:airline#extensions#tabline#enabled = 1
+
+" Configure environment
+" ---------------------
+
+colorscheme solarized
 filetype plugin indent on     " required!
-
-" Ahora empezamos con configuraciones basicas
-" Color molokai --> no fuciona en terminal, solo
-" para gvim.......buscar otro scheme ??
-
-"colorscheme molokai
-
+" Basic configuration for vim
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -124,81 +116,58 @@ set backspace=indent,eol,start
 set timeout timeoutlen=1000 ttimeoutlen=100
 set encoding=utf-8
 set autoread
-" Borra whitespace al grabar
+" Delete space when save the file
 autocmd BufWritePre * :%s/\s\+$//e
-
-" lista de caracteres para ver los espacios y los tabs
+" Map the characters to show for space and tabs
 set list listchars=tab:——,trail:⠂
 				highlight SpecialKey ctermfg=DarkGray
 
-" Mapeamos algunas teclas para las tabs
 
-nmap <silent> <C-t> :tabnew<cr>
-nmap <silent> <C-left> :tabprev<cr>
-nmap <silent> <C-right> :tabnext<cr>
 
-nmap <silent> <C-l> :bp<cr>
-nmap <silent> <C-h> :bn<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" Make difference between GUI and terminal
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Mapeamos el tagbartoggle para las funciones
+" Depend if we are running gui or not
+if has('gui_running')
 
-map <silent> <F2> :TagbarToggle<cr>
-map <silent> <F3> :NERDTreeTabsToggle<cr>
-"map <silent> <F4> :FufCoverageFile<cr>
-"map <silent> <F5> :set cursorline!<cr>:set cursorcolumn!<cr>
-" me parece mas interesante mapear aqui el toggle the numbers
-" mas que las lineas que no suelo utilizar
-map <silent> <F5> :set number!<cr>
-map <silent> <F6> :set list!<cr>
-map <silent> <F7> :tab sball<cr>
+	set background=light
 
-" La idea es mapear los siguientes comandos
-" "+gP pega el texto desde el porta papeles
-" "+gY copia el texto desde el portapapeles
-" "+gX corta el texto desde el portapapeles
-vmap <silent> <C-v> "+gP<cr>
-vmap <silent> <C-c> "+y<cr>
-vmap <silent> <C-x> "+x<cr>
+else
 
-" ahora vamos a movernos por las ventanas facilmente
-" en el terminal no funciona el mapeo, truco
+	let g:solarized_termcolors=256
+	let g:solarized_visibility="low"
+	let g:solarized_termtrans=1
+	set t_Co=256
+	set background=dark
 
-nmap <silent> <A-left> :wincmd h<cr>
-nmap <silent> <A-right> :wincmd l<cr>
-nmap <silent> <A-up> :wincmd k<cr>
-nmap <silent> <A-down> :wincmd j<cr>
+endif
 
-nmap <silent> <A-h> :wincmd h<cr>
-nmap <silent> <A-l> :wincmd l<cr>
-nmap <silent> <A-k> :wincmd k<cr>
-nmap <silent> <A-j> :wincmd j<cr>
 
-" Funciones de estilo, muestra lo que
-" no es aceptable para el standard
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" Some function to enhance vim
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Global variables
+" ----------------
+
 let s:show_nostandard = 0
-
 
 hi link over OverLength
 hi link whitespace_post WhiteSpace
 hi link whitespace_pre WhiteSpace
 
-" # Find lines with invalid whitespace.  They are considered incorrect if:
-" #   1) If the line ends with a whitespace character. This covers the case where a line is entirely whitespace.
-" #   2) If any whitespace characters except tabs precede the first non-whitespace character
-" #   3) If any whitespace characters except spaces follow the first non-whitespace character
-" export GREP_OPTIONS="-Hn"
-
-" result1=$(grep -P '\s$' $1)
-" result2=$(grep -vP $'^\t*(?:\S| \*|$)' $1)
-" result3=$(grep -P '\S[^\S ]' $1)
-
-
 call matchadd('over','\%81v.\+')
 call matchadd('whitespace_post','\s\+$')
 call matchadd('whitespace_pre','^[^\t]\s\+\S')
-"call matchadd('whitespace_pre','$^\t*(?:\S| \*|$)')
-"call matchadd('whitespace_inter','$^\t*(?:\S| \*|$)')
 
+
+" Functions
+" ---------
+
+" Show spaces and tabs
 function Nostandard()
 
 	hi OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -218,31 +187,52 @@ function Nostandard()
 
 endfunction
 
+" Run a file
+function Run()
 
-function Ejecutar()
-
-	" grabamos el fichero
+	" We need to save the file before of running the file
 	:w
 
-	" dependiendo del tipo ejecutamos
-	" un interprete u otro
+	" We check the type of file to call the proper interpreter
 
 	if &ft == 'tcl'
 		!tclsh %
 	elseif &ft == 'python'
 		!python %
 	else
-		echo "ni idea del fichero"
+		echo "Unknown file"
 	endif
 
 endfunction
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" Mapping keys
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
-" mapeos para las funciones
-
+nmap <silent> <C-t> :tabnew<cr>
+nmap <silent> <C-left> :bp<cr>
+nmap <silent> <C-right> :bn<cr>
+nmap <silent> <C-l> :bn<cr>
+nmap <silent> <C-h> :bp<cr>
+map <silent> <F2> :TagbarToggle<cr>
+map <silent> <F3> :NERDTreeTabsToggle<cr>
+map <silent> <F5> :set number!<cr>
+map <silent> <F6> :set list!<cr>
+map <silent> <F7> :tab sball<cr>
+vmap <silent> <C-v> "+gP<cr>
+vmap <silent> <C-c> "+y<cr>
+vmap <silent> <C-x> "+x<cr>
+nmap <silent> <A-left> :wincmd h<cr>
+nmap <silent> <A-right> :wincmd l<cr>
+nmap <silent> <A-up> :wincmd k<cr>
+nmap <silent> <A-down> :wincmd j<cr>
+nmap <silent> <A-h> :wincmd h<cr>
+nmap <silent> <A-l> :wincmd l<cr>
+nmap <silent> <A-k> :wincmd k<cr>
+nmap <silent> <A-j> :wincmd j<cr>
 map <silent> <F9> :call Nostandard()<cr>
-map <silent> <F8> :call Ejecutar()<cr>
+map <silent> <F8> :call Run()<cr>
+" Use jj to escape insert mode. Potential for collision? Actually pretty low.
+inoremap jj <ESC>
 
-
-let g:nerdtree_tabs_open_on_gui_startup = 0
