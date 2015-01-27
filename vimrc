@@ -24,11 +24,12 @@ Bundle 'majutsushi/tagbar'
 " SOLARIZED SCHEMA
 " Colors for vim
 Bundle 'altercation/vim-colors-solarized'
-
+Bundle 'tomasr/molokai'
 
 " DELIMMATE
 " Close { ( ....
-Bundle 'Raimondi/delimitMate'
+"Bundle 'Raimondi/delimitMate'
+Bundle 'jiangmiao/auto-pairs'
 
 
 " NERDTRE
@@ -79,7 +80,6 @@ let g:airline#extensions#tabline#enabled = 1
 " Configure environment
 " ---------------------
 
-colorscheme solarized
 filetype plugin indent on     " required!
 " Basic configuration for vim
 syntax on
@@ -127,11 +127,12 @@ set list listchars=tab:——,trail:⠂
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Make difference between GUI and terminal
 """""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme solarized
 
 " Depend if we are running gui or not
 if has('gui_running')
 
-	set background=light
+	colorscheme molokai
 
 else
 
