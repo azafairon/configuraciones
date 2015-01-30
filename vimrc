@@ -161,8 +161,9 @@ hi link whitespace_post WhiteSpace
 hi link whitespace_pre WhiteSpace
 
 call matchadd('over','\%81v.\+')
-call matchadd('whitespace_post','\s\+$')
-call matchadd('whitespace_pre','^[^\t]\s\+\S')
+call matchadd('whitespace_post','/[\t]\+[ ]\+[\t]\+\|[ ]\+[\t]\+[ ]\+\|[\t]\+[ ]\+\|[ ]\+[\t]\+\|^[ ]\+\|[\t ]\+$/')
+"call matchadd('whitespace_post','\s\+$')
+"call matchadd('whitespace_pre','^[^\t]\s\+\S')
 
 
 " Functions
@@ -177,12 +178,12 @@ function Nostandard()
 	if s:show_nostandard
 		hi link over NONE
 		hi link whitespace_post NONE
-		hi link whitespace_pre NONE
+"		hi link whitespace_pre NONE
 		let s:show_nostandard = 0
 	else
 		hi link over OverLength
 		hi link whitespace_post WhiteSpace
-		hi link whitespace_pre WhiteSpace
+"		hi link whitespace_pre WhiteSpace
 		let s:show_nostandard = 1
 	endif
 
