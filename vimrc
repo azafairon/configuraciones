@@ -117,7 +117,7 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 set encoding=utf-8
 set autoread
 " Delete space when save the file
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 " Map the characters to show for space and tabs
 set list listchars=tab:——,trail:⠂
 				highlight SpecialKey ctermfg=DarkGray
@@ -235,6 +235,7 @@ nmap <silent> <A-k> :wincmd k<cr>
 nmap <silent> <A-j> :wincmd j<cr>
 map <silent> <F9> :call Nostandard()<cr>
 map <silent> <F8> :call Run()<cr>
+nnoremap gr :grep -R '\b<cword>\b' *<CR>
 " Use jj to escape insert mode. Potential for collision? Actually pretty low.
 inoremap jj <ESC>
 
