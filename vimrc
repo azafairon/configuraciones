@@ -157,14 +157,10 @@ endif
 let s:show_nostandard = 0
 
 hi link over OverLength
-hi link whitespace_post WhiteSpace
-hi link whitespace_pre WhiteSpace
+hi link whitespace WhiteSpace
 
 call matchadd('over','\%81v.\+')
-call matchadd('whitespace_post','/[\t]\+[ ]\+[\t]\+\|[ ]\+[\t]\+[ ]\+\|[\t]\+[ ]\+\|[ ]\+[\t]\+\|^[ ]\+\|[\t ]\+$/')
-"call matchadd('whitespace_post','\s\+$')
-"call matchadd('whitespace_pre','^[^\t]\s\+\S')
-
+call matchadd('whitespace','/[\t]\+[ ]\+[\t]\+\|[ ]\+[\t]\+[ ]\+\|[\t]\+[ ]\+\|[ ]\+[\t]\+\|^[ ]\+\|[\t ]\+$/')
 
 " Functions
 " ---------
@@ -177,13 +173,11 @@ function Nostandard()
 
 	if s:show_nostandard
 		hi link over NONE
-		hi link whitespace_post NONE
-"		hi link whitespace_pre NONE
+		hi link whitespace NONE
 		let s:show_nostandard = 0
 	else
 		hi link over OverLength
-		hi link whitespace_post WhiteSpace
-"		hi link whitespace_pre WhiteSpace
+		hi link whitespace WhiteSpace
 		let s:show_nostandard = 1
 	endif
 
@@ -207,6 +201,22 @@ function Run()
 
 endfunction
 
+" Toggle quickfix
+
+let s:quickfix_active = 0
+
+function ToogleQuickFix()
+
+	if s:quickfix_active
+		:cclose
+		let s:quickfix_active = 0
+	else
+		:copen
+		let s:quickfix_active = 1
+	endif
+
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping keys
@@ -221,7 +231,7 @@ map <silent> <F2> :TagbarToggle<cr>
 map <silent> <F3> :NERDTreeTabsToggle<cr>
 map <silent> <F5> :set number!<cr>
 map <silent> <F6> :set list!<cr>
-map <silent> <F7> :tab sball<cr>
+map <silent> <F7> :call ToogleQuickFix()<cr>
 vmap <silent> <C-v> "+gP<cr>
 vmap <silent> <C-c> "+y<cr>
 vmap <silent> <C-x> "+x<cr>
