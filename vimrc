@@ -157,10 +157,10 @@ endif
 let s:show_nostandard = 0
 
 hi link over OverLength
-hi link whitespace WhiteSpace
+hi link whitespace_match WhiteSpace
 
 call matchadd('over','\%81v.\+')
-call matchadd('whitespace','/[\t]\+[ ]\+[\t]\+\|[ ]\+[\t]\+[ ]\+\|[\t]\+[ ]\+\|[ ]\+[\t]\+\|^[ ]\+\|[\t ]\+$/')
+call matchadd('whitespace_match','/[\t]\+[ ]\+[\t]\+\|[ ]\+[\t]\+[ ]\+\|[\t]\+[ ]\+\|[ ]\+[\t]\+\|^[ ]\+\|[\t ]\+$/')
 
 " Functions
 " ---------
@@ -173,11 +173,11 @@ function Nostandard()
 
 	if s:show_nostandard
 		hi link over NONE
-		hi link whitespace NONE
+		hi link whitespace_match NONE
 		let s:show_nostandard = 0
 	else
 		hi link over OverLength
-		hi link whitespace WhiteSpace
+		hi link whitespace_match WhiteSpace
 		let s:show_nostandard = 1
 	endif
 
