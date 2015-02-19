@@ -217,6 +217,24 @@ function ToogleQuickFix()
 
 endfunction
 
+let s:set_paste = 1
+
+function TooglePaste()
+
+	if s:set_paste
+		set paste
+		set nolist
+		set nonumber
+		let s:set_paste = 0
+	else
+		set nopaste
+		set list
+		set number
+		let s:set_paste = 1
+	endif
+
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping keys
@@ -229,9 +247,8 @@ nmap <silent> <C-l> :bn<cr>
 nmap <silent> <C-h> :bp<cr>
 map <silent> <F2> :TagbarToggle<cr>
 map <silent> <F3> :NERDTreeTabsToggle<cr>
-map <silent> <F5> :set number!<cr>
-map <silent> <F6> :set list!<cr>
-map <silent> <F7> :call ToogleQuickFix()<cr>
+map <silent> <F5> :call TooglePaste()<cr>
+map <silent> <F6> :call ToogleQuickFix()<cr>
 vmap <silent> <C-v> "+gP<cr>
 vmap <silent> <C-c> "+y<cr>
 vmap <silent> <C-x> "+x<cr>
