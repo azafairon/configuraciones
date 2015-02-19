@@ -1,3 +1,6 @@
+" """"""""""""""""""""""""""
+" Author : Pablo Ros Garcia
+"
 " Vundele :Allow us to install plugin for vim
 " To set up Vundele, we need to clone the repository and place it in
 " .vim/bundle/vundle.
