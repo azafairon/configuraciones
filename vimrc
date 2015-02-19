@@ -268,4 +268,7 @@ map <silent> <F8> :call Run()<cr>
 nnoremap gr :grep -R '\b<cword>\b' *<CR>
 " Use jj to escape insert mode. Potential for collision? Actually pretty low.
 inoremap jj <ESC>
+" If always we are working with buffers maybe it is nice use bd instead of q
+:cnoreabbrev wq w<bar>bd
+:cnoreabbrev q bd
 
