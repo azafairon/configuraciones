@@ -3,6 +3,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias c='clear'
+alias ll='ls -l'
+alias l='ls -la'
+alias ..='cd ..'
 
 # We need an alias to get docker works with sudo
 alias docker='sudo docker'
@@ -16,7 +19,6 @@ alias wish='rlwrap wish'
 #
 
 #Raspberry
-
 alias raspberry='ssh pi@noriaf.ddns.net'
 
 alias mc='mc -b'
