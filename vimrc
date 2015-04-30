@@ -130,7 +130,6 @@ set list listchars=tab:——,trail:⠂
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Make difference between GUI and terminal
 """""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme solarized
 
 " Depend if we are running gui or not
 if has('gui_running')
@@ -144,6 +143,7 @@ else
 	let g:solarized_termtrans=1
 	set t_Co=256
 	set background=dark
+	colorscheme solarized
 
 endif
 
