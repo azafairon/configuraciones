@@ -31,8 +31,9 @@ Bundle 'tomasr/molokai'
 
 " DELIMMATE
 " Close { ( ....
-"Bundle 'Raimondi/delimitMate'
-Bundle 'jiangmiao/auto-pairs'
+Bundle 'Raimondi/delimitMate'
+" Bundle 'jiangmiao/auto-pairs'
+"Bundle 'tpope/vim-surround'
 
 
 " NERDTRE
@@ -190,6 +191,10 @@ function Nostandard()
 
 endfunction
 
+" Compile java files
+autocmd Filetype java set makeprg=javac\ %
+set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
 " Run a file
 function Run()
 
@@ -202,6 +207,11 @@ function Run()
 		!tclsh %
 	elseif &ft == 'python'
 		!python %
+	elseif &ft == 'java'
+		:make
+		!java -cp %:p:h %:t:r
+	elseif &ft == 'javascript'
+		!nodejs %
 	else
 		echo "Unknown file"
 	endif
