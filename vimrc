@@ -28,6 +28,7 @@ Bundle 'majutsushi/tagbar'
 " Colors for vim
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
+Bundle 'flazz/vim-colorschemes'
 
 " DELIMMATE
 " Close { ( ....
@@ -63,6 +64,14 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
+
+" JSHINT
+
+Bundle 'walm/jshint.vim.git'
+
+" Support for GIT
+Bundle 'tpope/vim-fugitive'
+
 
 
 
@@ -139,12 +148,13 @@ if has('gui_running')
 
 else
 
-	let g:solarized_termcolors=256
-	let g:solarized_visibility="low"
-	let g:solarized_termtrans=1
-	set t_Co=256
-	set background=dark
-	colorscheme solarized
+	"let g:solarized_termcolors=256
+	"let g:solarized_visibility="low"
+	"let g:solarized_termtrans=1
+	"set t_Co=256
+	"set background=dark
+	"colorscheme solarized
+	colorscheme Tomorrow-Night-Eighties
 
 endif
 
