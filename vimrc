@@ -222,6 +222,8 @@ function Run()
 		!java -cp %:p:h %:t:r
 	elseif &ft == 'javascript'
 		!nodejs %
+	elseif &ft == 'sql'
+		!dbaccess-11.70 ds_bau02@db03_1170 %
 	else
 		echo "Unknown file"
 	endif
