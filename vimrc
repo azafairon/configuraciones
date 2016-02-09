@@ -72,8 +72,13 @@ Bundle 'walm/jshint.vim.git'
 " Support for GIT
 Bundle 'tpope/vim-fugitive'
 
+"Emmet plugin
+Bundle 'mattn/emmet-vim'
 
 
+" python autocomplete
+Bundle 'davidhalter/jedi-vim.git'
+autocmd FileType python setlocal completeopt-=preview
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
