@@ -80,6 +80,9 @@ Bundle 'mattn/emmet-vim'
 Bundle 'davidhalter/jedi-vim.git'
 autocmd FileType python setlocal completeopt-=preview
 
+"Python indent
+Bundle 'hynek/vim-python-pep8-indent'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Configure plugins and environment
