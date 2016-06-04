@@ -156,13 +156,14 @@ if has('gui_running')
 
 else
 
-	let g:solarized_termcolors=256
-	let g:solarized_visibility="low"
-	let g:solarized_termtrans=1
+	"let g:solarized_termcolors=256
+	"let g:solarized_visibility="low"
+	"let g:solarized_termtrans=1
 	set t_Co=256
-	set background=dark
+	""set background=dark
 	"colorscheme solarized
-	colorscheme Tomorrow-Night-Eighties
+	"colorscheme Tomorrow-Night-Eighties
+	colorscheme molokai
 
 endif
 
