@@ -51,6 +51,7 @@ Bundle "kien/ctrlp.vim"
 " VIM-AIRLINE
 " Enhance for the status bar
 Bundle 'bling/vim-airline'
+Bundle 'airblade/vim-gitgutter'
 
 
 " VIM-COMMENTARY
