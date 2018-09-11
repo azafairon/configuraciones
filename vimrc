@@ -76,11 +76,6 @@ Bundle 'tpope/vim-fugitive'
 "Emmet plugin
 Bundle 'mattn/emmet-vim'
 
-
-" python autocomplete
-Bundle 'davidhalter/jedi-vim.git'
-autocmd FileType python setlocal completeopt-=preview
-
 "Python indent
 Bundle 'hynek/vim-python-pep8-indent'
 
