@@ -23,6 +23,8 @@ Bundle 'gmarik/vundle'
 " indentify functions,classes,procedures.....
 Bundle 'majutsushi/tagbar'
 
+"Easy motion
+Bundle 'easymotion/vim-easymotion'
 
 " SOLARIZED SCHEMA
 " Colors for vim
