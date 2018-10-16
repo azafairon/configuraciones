@@ -158,8 +158,8 @@ else
 	set t_Co=256
 	""set background=dark
 	"colorscheme solarized
-	"colorscheme Tomorrow-Night-Eighties
-	colorscheme molokai
+	colorscheme Tomorrow-Night-Eighties
+	"colorscheme molokai
 
 endif
 
@@ -226,7 +226,7 @@ function Run()
 		:make
 		!java -cp %:p:h %:t:r
 	elseif &ft == 'javascript'
-		!nodejs %
+		!node %
 	elseif &ft == 'sql'
 		!dbaccess-11.70 ds_bau02@db03_1170 %
 	else
