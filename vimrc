@@ -76,7 +76,7 @@ Bundle 'walm/jshint.vim.git'
 Bundle 'tpope/vim-fugitive'
 
 "Emmet plugin
-Bundle 'mattn/emmet-vim'
+"Bundle 'mattn/emmet-vim'
 
 "Python indent
 Bundle 'hynek/vim-python-pep8-indent'
