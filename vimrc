@@ -141,6 +141,9 @@ set autoread
 set list listchars=tab:——,trail:⠂
 				highlight SpecialKey ctermfg=DarkGray
 
+set relativenumber
+set rnu
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -262,11 +265,15 @@ function TooglePaste()
 		set nolist
 		set nonumber
 		let s:set_paste = 0
+		set norelativenumber
+		set nornu
 	else
 		set nopaste
 		set list
 		set number
 		let s:set_paste = 1
+		set relativenumber
+		set rnu
 	endif
 
 endfunction
