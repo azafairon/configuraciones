@@ -80,6 +80,8 @@ Bundle 'tpope/vim-fugitive'
 
 "Python indent
 Bundle 'hynek/vim-python-pep8-indent'
+"Python autocomple
+Bundle 'davidhalter/jedi-vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -138,7 +140,7 @@ set autoread
 " Delete space when save the file
 "autocmd BufWritePre * :%s/\s\+$//e
 " Map the characters to show for space and tabs
-set list listchars=tab:——,trail:⠂
+" set list listchars=tab:——,trail:⠂
 				highlight SpecialKey ctermfg=DarkGray
 
 set relativenumber
@@ -157,14 +159,14 @@ if has('gui_running')
 
 else
 
-	"let g:solarized_termcolors=256
-	"let g:solarized_visibility="low"
-	"let g:solarized_termtrans=1
+	let g:solarized_termcolors=256
+	let g:solarized_visibility="low"
+	let g:solarized_termtrans=1
 	set t_Co=256
-	""set background=dark
-	"colorscheme solarized
-	colorscheme Tomorrow-Night-Eighties
-	"colorscheme molokai
+	set background=dark
+	colorscheme solarized
+	" colorscheme Tomorrow-Night-Eighties
+	colorscheme molokai
 
 endif
 
@@ -226,7 +228,7 @@ function Run()
 	if &ft == 'tcl'
 		!tclsh %
 	elseif &ft == 'python'
-		!python %
+		!python2 %
 	elseif &ft == 'java'
 		:make
 		!java -cp %:p:h %:t:r
