@@ -42,7 +42,7 @@ Bundle 'Raimondi/delimitMate'
 " NERDTRE
 " Generate a directory tree
 Bundle "scrooloose/nerdtree"
-Bundle "jistr/vim-nerdtree-tabs"
+"Bundle "jistr/vim-nerdtree-tabs"
 
 
 " CTRL-P
@@ -81,7 +81,8 @@ Bundle 'tpope/vim-fugitive'
 "Python indent
 Bundle 'hynek/vim-python-pep8-indent'
 "Python autocomple
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
+"Bundle 'ycm-core/YouCompleteMe'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -159,14 +160,14 @@ if has('gui_running')
 
 else
 
-	let g:solarized_termcolors=256
-	let g:solarized_visibility="low"
-	let g:solarized_termtrans=1
-	set t_Co=256
-	set background=dark
-	colorscheme solarized
-	" colorscheme Tomorrow-Night-Eighties
-	colorscheme molokai
+	" let g:solarized_termcolors=256
+	" let g:solarized_visibility="low"
+	" let g:solarized_termtrans=1
+	" set t_Co=256
+	"set background=dark
+	" colorscheme solarized
+	"colorscheme Tomorrow-Night-Eighties
+	" colorscheme molokai
 
 endif
 
@@ -291,7 +292,7 @@ nmap <silent> <C-right> :bn<cr>
 nmap <silent> <C-l> :bn<cr>
 nmap <silent> <C-h> :bp<cr>
 map <silent> <F2> :TagbarToggle<cr>
-map <silent> <F3> :NERDTreeTabsToggle<cr>
+map <silent> <F3> :NERDTreeToggle<cr>
 map <silent> <F5> :call TooglePaste()<cr>
 map <silent> <F6> :call ToogleQuickFix()<cr>
 vmap <silent> <C-v> "+gP<cr>
@@ -311,6 +312,6 @@ nnoremap gr :grep -R '\b<cword>\b' *<CR>
 " Use jj to escape insert mode. Potential for collision? Actually pretty low.
 inoremap jj <ESC>
 " If always we are working with buffers maybe it is nice use bd instead of q
-:cnoreabbrev wq w<bar>bd
-:cnoreabbrev q bd
+" :cnoreabbrev wq w<bar>bd
+" :cnoreabbrev q bd
 
