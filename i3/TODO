@@ -1,0 +1,9 @@
+create ansible to install base os
+must have :
+ - chose arch/ubuntu
+ - install i3-gaps
+ - basic custom configuration
+ - working system
+ - working for vms / real system
+
+git/ansible
