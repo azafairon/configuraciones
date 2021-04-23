@@ -38,13 +38,13 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id rofi -show-icons -sort -show run -theme lb
 # bindsym $mod1+Tab exec --no-startup-id rofi -show-icons -sort -show window -theme lb
 
-bindsym $mod+d exec rofi -modi drun -show run -display-run "Apps : " -line-padding 6 \
-                -columns 2 -padding 150 -hide-scrollbar -theme Monokai\
+bindsym $mod+d exec rofi -modi drun -show run -display-run "Apps : " -line-padding 4 \
+                -columns 2 -padding 50 -hide-scrollbar \
                 -show-icons -run-icon-theme "Arc-X-D" -font "xft:URWGothic-Book 12"
 
 
 bindsym $mod1+Tab exec rofi -show window -display-window "Window : " -line-padding 4 \
-                -lines 10 -padding 50 -hide-scrollbar -theme Monokai\
+                -lines 10 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "xft:URWGothic-Book 12"
 
 
