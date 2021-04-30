@@ -83,6 +83,7 @@ Bundle 'hynek/vim-python-pep8-indent'
 "Python autocomple
 "Bundle 'davidhalter/jedi-vim'
 "Bundle 'ycm-core/YouCompleteMe'
+Bundle 'xavierd/clang_complete'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -229,14 +230,14 @@ function Run()
 	if &ft == 'tcl'
 		!tclsh %
 	elseif &ft == 'python'
-		!python2 %
+		!python %
 	elseif &ft == 'java'
 		:make
 		!java -cp %:p:h %:t:r
 	elseif &ft == 'javascript'
 		!node %
-	elseif &ft == 'sql'
-		!dbaccess-11.70 ds_bau02@db03_1170 %
+	elseif &ft == 'cpp'
+		!g++ % -o tempex && ./tempex && rm ./tempex
 	else
 		echo "Unknown file"
 	endif
