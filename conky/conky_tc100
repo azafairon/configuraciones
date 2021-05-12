@@ -1,0 +1,84 @@
+conky.config = {
+	alignment = 'top_right',
+	background = true,
+	color2 = '5D7B86',
+	cpu_avg_samples = 2,
+	default_color = 'F9FAF9',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=8',
+	draw_shades = false,
+	gap_x = 50,
+	gap_y = 180,
+	minimum_width = 700,
+	minimum_height = 700,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.0,
+	use_xft = true,
+}
+conky.text = [[
+${image /usr/share/conky/images/background-black.png -s 700x700 -p 0,0}
+#Time
+${voffset 11}$color2${font Bitstream Vera Sans:size=16}${time %A}$font\
+${voffset -8}$alignr$color${font Bitstream Vera Sans:size=38}${time %e}$font
+$color${voffset -30}$color${font Bitstream Vera Sans:size=18}${time %b}$font\
+${voffset -3} $color${font Bitstream Vera Sans:size=20}${time %Y}$font$color2$hr
+
+${voffset -105}
+
+#CPU
+${goto 335}${voffset 90}${cpugraph 30,200 -l}${alignr 134}${if_match $cpu >= 10}${offset 10}${else}${offset 2}${endif}${voffset -18}${cpu}%
+${goto 335}${voffset 10}CPU USAGE: ${cpubar 10,104}
+
+${voffset -18}
+#Information
+${goto 120}${exec cat /etc/os-release | head -1 | cut -d '"' -f2}
+${goto 120}UPTIME: ${uptime}
+${goto 120}${kernel}
+
+${voffset -16}
+#Memory Graph
+${alignr 85}${voffset 8}${memgraph 30,120}
+${alignr 85}MEMORY: ${membar 10, 50}
+${alignr 85}${mem}
+
+#IO Disk Graphs
+${voffset -20}
+${goto 65}${voffset 15}${diskiograph_read 30,100 -l}${goto 175}${diskiograph_write 30,100 -l}
+${goto 65}${voffset 5}DISK READ${goto 175}DISK WRITE
+${goto 65}${diskio_read}${goto 175}${diskio_write}
+
+#Processes and Threads Information
+${voffset 58}${goto 175}PROCESSES
+${goto 175}${running_processes}
+${goto 175}THREADS
+${goto 175}${running_threads}
+
+#Filesystem Usage
+${voffset -170}
+${alignr 155}${fs_bar 10,140}
+${alignr 155}Filesystem ${fs_size /}
+${voffset -90}
+
+${goto 580}USED ${fs_used}
+${goto 580}${fs_bar 10,100}
+${voffset 10}
+${goto 580}FREE ${fs_free}
+${goto 580}${fs_bar_free 10,100}
+
+#Network Graphs
+${voffset 20}
+${goto 375}${upspeedgraph wlp58s0 30,100}
+${goto 375}UPLOAD ${upspeed wlp58s0}
+${voffset -67}
+${goto 495}${downspeedgraph wlp58s0 30,100}
+${goto 495}DOWNLOAD ${downspeed wlp58s0}
+
+#IP Information
+${voffset 30}
+${goto 420}LOCAL IP: ${addr wlp58s0}
+${voffset -13}${goto 170}EXTERNAL IP: ${execi 60 curl  ipinfo.io/ip}
+
+]]

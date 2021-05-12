@@ -237,7 +237,7 @@ function Run()
 	elseif &ft == 'javascript'
 		!node %
 	elseif &ft == 'cpp'
-		!g++ % -o tempex && ./tempex && rm ./tempex
+		:make
 	else
 		echo "Unknown file"
 	endif

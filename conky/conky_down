@@ -1,0 +1,40 @@
+conky.config = {
+	alignment = 'bottom_left',
+	background = true,
+	color2 = '5D7B86',
+	cpu_avg_samples = 2,
+	default_color = 'F9FAF9',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=9',
+	draw_shades = false,
+	gap_x = 100,
+	gap_y = 40,
+	minimum_width = 800,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.0,
+	use_xft = true,
+}
+conky.text = [[
+${voffset 20}${goto 40}${color}CPU${font Bitstream Vera Sans:bold:size=9}$alignr$cpu%
+$hr
+${voffset 5}${goto 40}$font$color2${top name 1}$alignr$color${top cpu 1}%
+${goto 40}$color2${top name 2}$alignr$color${top cpu 2}%
+${goto 40}$color2${top name 3}$alignr$color${top cpu 3}%
+${goto 40}$color2${top name 4}$alignr$color${top cpu 4}%
+${goto 40}$color2${top name 5}$alignr$color${top cpu 5}%
+${goto 40}$color2${top name 6}$alignr$color${top cpu 5}%
+${goto 40}$color2${top name 7}$alignr$color${top cpu 5}%
+
+${voffset 30}${goto 40}${color}RAM${font Bitstream Vera Sans:bold:size=9}$alignr$mem$font
+$hr
+${goto 40}${voffset 5}$color2${top_mem name 1}$alignr$color${top_mem mem_res 1}
+${goto 40}$color2${top_mem name 2}$alignr$color${top_mem mem_res 2}
+${goto 40}$color2${top_mem name 3}$alignr$color${top_mem mem_res 3}
+${goto 40}$color2${top_mem name 4}$alignr$color${top_mem mem_res 4}
+${goto 40}$color2${top_mem name 5}$alignr$color${top_mem mem_res 5}
+${goto 40}$color2${top_mem name 6}$alignr$color${top_mem mem_res 5}
+${goto 40}$color2${top_mem name 7}$alignr$color${top_mem mem_res 5}
+]]

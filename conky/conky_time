@@ -1,0 +1,33 @@
+conky.config = {
+	alignment = 'top_left',
+	background = true,
+	color2 = '5D7B86',
+	cpu_avg_samples = 2,
+	default_color = 'F9FAF9',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=8',
+	draw_shades = false,
+	gap_x = 50,
+	gap_y = 120,
+	minimum_width = 700,
+	minimum_height = 700,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.0,
+	use_xft = true,
+}
+conky.text = [[
+${image /usr/share/conky/images/circle.png -s 230x300 -p 240,-10}
+#Time
+
+
+${voffset 11}$color2${goto 300}${font Bitstream Vera Sans:size=60}${time %H}$font\
+${voffset 11}$color2${goto 370}${font Bitstream Vera Sans:size=40}${time %M}$font\
+
+${voffset 11}$color2${goto 360}${font Bitstream Vera Sans:size=20}${time %S}$font\
+${voffset 120}
+${font Bitstream Vera Sans:size=11}${execi 60 sensors coretemp-isa-0000}
+
+]]
