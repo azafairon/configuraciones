@@ -182,6 +182,9 @@ endif
 " Global variables
 " ----------------
 
+" Use new parser for SnipMate
+let g:snipMate = { 'snippet_version' : 1 }
+
 let s:show_nostandard = 0
 
 hi link over OverLength
